@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
@@ -20,7 +16,7 @@ public class Ball : MonoBehaviour
     {
         paddleToBallVector = transform.position - paddle.transform.position;
         audioSource = GetComponent<AudioSource>();
-        GetComponent<Rigidbody2D>()
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -48,8 +44,11 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
         if (isStarted)
         {
+            Vector2 velocityRandom = new Vector2(Random.Range(0, randomFactor),Random.Range(0, randomFactor));
+            rigidBody.velocity += velocityRandom; // to prevent infinite movements
             AudioClip clip = clips[Random.Range(0, clips.Length)];
             audioSource.PlayOneShot(clip);
         }

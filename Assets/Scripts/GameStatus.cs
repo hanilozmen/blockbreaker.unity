@@ -9,6 +9,7 @@ public class GameStatus : MonoBehaviour
     [Range(0.1f,10f)] public  float gameSpeed = 1f;
     public int pointsPerBlocks = 83;
     public TextMeshProUGUI scoreText;
+    public bool isAutoPlayEnabled;
 
     private int currentScore = 0;
     private void Awake()
