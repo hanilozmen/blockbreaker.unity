@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public readonly float cameraWidth = 32f;
+    public readonly float cameraWidth = 18f;
     public readonly float halfPaddleSize = 2f;
 
     private GameStatus gameStatus;
