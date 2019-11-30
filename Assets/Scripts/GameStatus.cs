@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameStatus : MonoBehaviour
 {
-    [Range(0.1f,10f)] public  float gameSpeed = 1f;
+    [Range(0.1f,10f)] public  float gameSpeed;
     public int pointsPerBlocks = 83;
     public TextMeshProUGUI scoreText;
     public bool isAutoPlayEnabled;

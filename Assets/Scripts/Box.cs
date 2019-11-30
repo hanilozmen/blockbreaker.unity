@@ -27,7 +27,7 @@ public class Box : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
-        if (gameObject.tag == "Breakable")
+        if (gameObject.tag == "Breakable" && other.gameObject.tag == "Ball")
         {
             hitCount++;
             if (hitCount >= maxHits)

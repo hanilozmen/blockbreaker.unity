@@ -5,10 +5,10 @@ public class Ball : MonoBehaviour
     public Paddle paddle;
     public float xVelocity, yVelocity;
     public AudioClip[] clips;
-    public float randomFactor = 0.2f;
+    public float randomFactor;
     
     private bool isStarted = false;
-    private Vector2 paddleToBallVector;
+    private Vector3 paddleToBallVector;
 
     private AudioSource audioSource;
     private Rigidbody2D rigidBody;
@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
 
     private void LockBallToPaddle()
     {
-        transform.position = new Vector2(paddle.transform.position.x, paddle.transform.position.y) + paddleToBallVector;
+        transform.position = new Vector3(paddle.transform.position.x, paddle.transform.position.y, paddle.transform.position.z) + paddleToBallVector;
     }
 
     private void LaunchOnMouseClick()

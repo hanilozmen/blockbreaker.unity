@@ -17,4 +17,5 @@ public class Gameplay : MonoBehaviour
         if (boxCount <= 0)
             FindObjectOfType<SceneLoader>().LoadNextScene();
     }
+    
 }
