@@ -47,8 +47,8 @@ public class Ball : MonoBehaviour
         
         if (isStarted)
         {
-            Vector2 velocityRandom = new Vector2(Random.Range(0, randomFactor),Random.Range(0, randomFactor));
-            rigidBody.velocity += velocityRandom; // to prevent infinite movements
+            // Vector2 velocityRandom = new Vector2(Random.Range(0, randomFactor),Random.Range(0, randomFactor));
+            // rigidBody.velocity += velocityRandom; // to prevent infinite movements
             AudioClip clip = clips[Random.Range(0, clips.Length)];
             audioSource.PlayOneShot(clip);
         }

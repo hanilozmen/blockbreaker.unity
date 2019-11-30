@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class Box : MonoBehaviour
@@ -8,32 +9,63 @@ public class Box : MonoBehaviour
     public AudioClip clip;
     public GameObject particleAnimation;
     
+
     public Sprite[] sprites;
-    
-    private Gameplay gameplay;
-    private GameStatus gameStatus;
+
+
     private int hitCount;
     private int maxHits;
+    private List<Box> sameColumnBoxes;
+    private int charStartPosX;
+    private int boxHolderTopPosY;
     
+    private Char character;
+    private Gameplay gameplay;
+    private GameStatus gameStatus;
+    private InvisibleHolder boxHolder;
+
+    private void Awake()
+    {
+        character = FindObjectOfType<Char>();
+        gameplay = FindObjectOfType<Gameplay>();
+        gameStatus = FindObjectOfType<GameStatus>();
+        boxHolder = FindObjectOfType<InvisibleHolder>();
+    }
+
     private void Start()
     {
+        charStartPosX = Convert.ToInt32(character.transform.position.x);
+        boxHolderTopPosY = Convert.ToInt32(boxHolder.GetComponent<Collider2D>().bounds.max.y); 
+        sameColumnBoxes = new List<Box>();
         maxHits = sprites.Length;
-        gameplay = FindObjectOfType<Gameplay>();
-        if(gameObject.tag == "Breakable")
+        if (gameObject.tag == "Breakable")
             gameplay.IncreaseBoxCount();
-        gameStatus = FindObjectOfType<GameStatus>();
+    }
+
+    private void FindSameColumnBoxes()
+    {
+        sameColumnBoxes.Clear();
+        foreach (var item in FindObjectsOfType<Box>())
+        {
+            if (item.GetHashCode() == GetHashCode()) continue;
+            if (item.getPoints().X == getPoints().X)
+            {
+                sameColumnBoxes.Add(item);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
         if (gameObject.tag == "Breakable" && other.gameObject.tag == "Ball")
         {
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
             hitCount++;
             if (hitCount >= maxHits)
             {
                 DestroyBlock();
-            }else
+            }
+            else
             {
                 ShowNextSprite();
             }
@@ -53,10 +85,34 @@ public class Box : MonoBehaviour
 
     private void DestroyBlock()
     {
-        
         Destroy(gameObject);
         gameplay.DecreaseBoxCount();
         gameStatus.IncreaseScore();
         TriggerParticleAnimation();
+        FindSameColumnBoxes();
+        FallOtherBoxes(1);
+        FallCharacter(1);
+    }
+
+    private PointF getPoints()
+    {
+        return new PointF(Convert.ToInt32(gameObject.transform.position.x),Convert.ToInt32(gameObject.transform.position.y));
+    }
+
+    private void FallCharacter(int fallAmount)
+    {
+        if ( Convert.ToInt32(character.transform.position.x) == getPoints().X)
+        {
+            character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y - fallAmount );
+        }
+    }
+
+    private void FallOtherBoxes(int fallAmount)
+    {
+        foreach (var item in sameColumnBoxes)
+        {
+            if (item == null || item.transform.position.y <= boxHolderTopPosY) continue;
+            item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y - fallAmount);
+        }
     }
 }
