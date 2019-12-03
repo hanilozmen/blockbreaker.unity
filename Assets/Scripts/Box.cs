@@ -22,14 +22,14 @@ public class Box : MonoBehaviour
     private Char character;
     private Gameplay gameplay;
     private GameStatus gameStatus;
-    private InvisibleHolder boxHolder;
+    private BoxHolder boxHolder;
 
     private void Awake()
     {
         character = FindObjectOfType<Char>();
         gameplay = FindObjectOfType<Gameplay>();
         gameStatus = FindObjectOfType<GameStatus>();
-        boxHolder = FindObjectOfType<InvisibleHolder>();
+        boxHolder = FindObjectOfType<BoxHolder>();
     }
 
     private void Start()

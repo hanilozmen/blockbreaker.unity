@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvisibleHolder : MonoBehaviour
+public class BoxHolder : MonoBehaviour
 {
 
     public Ball ball;
