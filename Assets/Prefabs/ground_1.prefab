@@ -122,4 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: d54fe7e67395513069601c752e50e301, type: 3}
   particleAnimation: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: dcaa46dafa71e8afba471dbadc9d07d7, type: 3}

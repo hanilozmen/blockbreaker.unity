@@ -7,6 +7,7 @@ public class BoxHolder : MonoBehaviour
 {
 
     public Ball ball;
+    public Sprite charClimbSprite;
 
     private void Awake()
     {

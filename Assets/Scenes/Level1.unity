@@ -2803,11 +2803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_1 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1771630137258244770, guid: 401671c4e38deae749b96df01ed82f0c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2398977459871887323, guid: 401671c4e38deae749b96df01ed82f0c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3182,24 +3177,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f00367d15f8bd6fab3d701a9eaf720e, type: 3}
---- !u!1 &1856334465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4442259666964304628, guid: c17bbbe8f0082792b98d8745e0526334,
-    type: 3}
-  m_PrefabInstance: {fileID: 5139191549001003504}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1856334466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856334465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3c82611636c046c797f1a03a064ee8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1867434668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5863453794256461683, guid: 5f00367d15f8bd6fab3d701a9eaf720e,
@@ -4344,7 +4321,7 @@ PrefabInstance:
     - target: {fileID: 4424445482408631626, guid: 9738bba732448f0ed8b1b9710394a8b6,
         type: 3}
       propertyPath: xVelocity
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5222622393504520927, guid: 9738bba732448f0ed8b1b9710394a8b6,
         type: 3}
@@ -4555,16 +4532,11 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 722425975}
-    - target: {fileID: 5255912509260718583, guid: c522321472abb695da335f009282460e,
+    - target: {fileID: 5255912511018949366, guid: c522321472abb695da335f009282460e,
         type: 3}
       propertyPath: ball
       value: 
       objectReference: {fileID: 722425975}
-    - target: {fileID: 5255912511018949361, guid: c522321472abb695da335f009282460e,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c522321472abb695da335f009282460e, type: 3}
 --- !u!4 &5255912511281149259 stripped

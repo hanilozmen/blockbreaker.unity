@@ -103,8 +103,14 @@ public class Box : MonoBehaviour
     {
         if ( Convert.ToInt32(character.transform.position.x) == getPoints().X)
         {
+            
             character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y - fallAmount );
+            if (Convert.ToInt32(character.transform.position.y) == boxHolderTopPosY)
+            {
+                character.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            }
         }
+        
     }
 
     private void FallOtherBoxes(int fallAmount)
